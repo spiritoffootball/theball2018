@@ -2,7 +2,7 @@
  * Default map styles.
  *
  * This has been copied to map-style.css in our theme directory
- * or Geo Mashup Custom plugin directory, if you have that 
+ * or Geo Mashup Custom plugin directory, if you have that
  * installed.
  */
 
@@ -48,7 +48,7 @@ body { margin: 0; padding: 0; }
 		display: block;
 		line-height: 0;
 	}
-	
+
 	.post-location-info .post_header.has_feature_image .post_header_text
 	{
 		width: 280px;
@@ -76,8 +76,8 @@ body { margin: 0; padding: 0; }
 		color: #202B6D;
 		text-decoration: none;
 	}
-	
-	.post-location-info p.postname 
+
+	.post-location-info p.postname
 	{
 		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-size: 0.8em;
@@ -86,23 +86,23 @@ body { margin: 0; padding: 0; }
 		padding: 0 2px;
 		line-height: 1;
 	}
-	
-	.post-location-info .post_header.has_feature_image p.postname 
+
+	.post-location-info .post_header.has_feature_image p.postname
 	{
 		color: #202B6D;
 	}
-	
+
 		.post-location-info p.postname a
 		{
 			color: #999;
 			text-decoration: underline;
 		}
-		
+
 		.post-location-info .post_header.has_feature_image p.postname a
 		{
 			color: #202B6D;
 		}
-				
+
 .post-location-info .location-post .storycontent
 {
 	padding: 5px 5px 15px 5px;
@@ -110,7 +110,7 @@ body { margin: 0; padding: 0; }
 	border-top: none;
 	background: #f6f6f6;
 }
-		
+
 	.post-location-info .location-post .storycontent p
 	{
 		margin: 0 0 15px 0;
@@ -118,7 +118,7 @@ body { margin: 0; padding: 0; }
 		line-height: 1.6;
 		font-size: 11px !important;
 	}
-		
+
 		.post-location-info .location-post .storycontent a.more-link
 		{
 			text-transform: uppercase;

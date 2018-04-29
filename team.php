@@ -1,9 +1,9 @@
-<?php 
+<?php
 /*
 Template Name: Team
 */
 
-get_header(); 
+get_header();
 
 ?>
 
@@ -11,9 +11,9 @@ get_header();
 
 <div id="content_wrapper" class="clearfix">
 
-	
-					
-<?php include( get_stylesheet_directory().'/assets/includes/site_banner.php' ); ?>
+
+
+<?php include( get_stylesheet_directory() . '/assets/includes/site_banner.php' ); ?>
 
 
 
@@ -21,7 +21,7 @@ get_header();
 
 
 
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 <div class="main_column_inner" id="main_column_splash">
 
@@ -29,10 +29,10 @@ get_header();
 
 <h2 id="post-<?php the_ID(); ?>"><?php the_title(); ?></h2>
 
-<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
+<?php the_content( '<p class="serif">Read the rest of this page &raquo;</p>' ); ?>
 
-<?php edit_post_link('Edit this entry', '<p>', '</p>'); ?>
-	
+<?php edit_post_link( 'Edit this entry', '<p>', '</p>' ); ?>
+
 <?php echo theball_multipager(); ?>
 
 </div><!-- /post -->
@@ -61,19 +61,19 @@ if ( count( $_users ) > 0 ) {
 
 		// loop
 		foreach( $_users AS $_user ) {
-	
+
 			// exclude admin
 			if ( $_user->ID == $_include_user ) {
-	
+
 				// add to array
 				$_users_sorted[] = $_user;
-				
+
 			}
-		
+
 		}
-		
+
 	}
-	
+
 }
 
 
@@ -83,21 +83,21 @@ if ( count( $_users_sorted ) > 0 ) {
 
 	// loop
 	foreach( $_users_sorted AS $_user ) {
-	
+
 ?>
 <div class="main_column_inner">
 
 <div class="post">
 
 <div class="entrytext">
-	
+
 <?php
 
 		// get data
 		$user_data = get_userdata( $_user->ID );
-	
+
 		// show display name
-		echo  '<h3><a href="'.get_option('home').'/blog/author/'.$_user->user_login.'/">'.$_user->display_name.'</a></h3>';
+		echo  '<h3><a href="' . get_option( 'home' ) . '/blog/author/' . $_user->user_login . '/">' . $_user->display_name . '</a></h3>';
 
 ?>
 <div id="author_avatar">
@@ -108,21 +108,21 @@ if ( count( $_users_sorted ) > 0 ) {
 <?php
 
 		// show desc
-		echo  '<p>'.nl2br( $user_data->description ).'</p>';
-		
+		echo  '<p>' . nl2br( $user_data->description ) . '</p>';
+
 		// if we're in WPMU
 		if ( function_exists( 'is_super_admin' ) ) {
-		
+
 			// are they
 			if ( is_super_admin() ) {
-			
+
 				// show link to profile
-				echo '<p><a class="post-edit-link" href="'.get_option('siteurl').'/wp-admin/user-edit.php?user_id='.$_user->ID.'">Edit this profile</a></p>';
-			
+				echo '<p><a class="post-edit-link" href="' . get_option( 'siteurl' ) . '/wp-admin/user-edit.php?user_id=' . $_user->ID . '">Edit this profile</a></p>';
+
 			}
-		
+
 		}
-		
+
 ?>
 </div>
 
@@ -134,12 +134,12 @@ if ( count( $_users_sorted ) > 0 ) {
 
 
 
-<?php 		
+<?php
 
 	} // end loop
 
 }
-	
+
 ?>
 
 

@@ -6,7 +6,7 @@
 
 
 
-<?php include( get_stylesheet_directory().'/assets/includes/site_banner.php' ); ?>
+<?php include( get_stylesheet_directory() . '/assets/includes/site_banner.php' ); ?>
 
 
 
@@ -14,13 +14,13 @@
 
 
 
-<?php if (have_posts()) : ?>
+<?php if ( have_posts() ) : ?>
 
 	<?php
 
 	// Search Nav
-	$pl = get_next_posts_link('&laquo; Older Posts');
-	$nl = get_previous_posts_link('Newer Posts &raquo;');
+	$pl = get_next_posts_link( '&laquo; Older Posts' );
+	$nl = get_previous_posts_link( 'Newer Posts &raquo;' );
 
 	?>
 
@@ -37,7 +37,7 @@
 
 	<div class="main_column_inner">
 
-	<?php while (have_posts()) : the_post(); ?>
+	<?php while ( have_posts() ) : the_post(); ?>
 
 		<div class="post" id="post-<?php the_ID(); ?>">
 
@@ -82,7 +82,7 @@
 				<?php the_excerpt(); ?>
 			</div>
 
-			<p class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
+			<p class="postmetadata"><?php the_tags( 'Tags: ', ', ', '<br />' ); ?> Posted in <?php the_category( ', ' ) ?> | <?php comments_popup_link( 'No Comments &#187;', '1 Comment &#187;', '% Comments &#187;' ); ?></p>
 
 		</div>
 
@@ -114,7 +114,7 @@
 
 	<p>Sorry, but you are looking for something that isn't here. Try a search?</p>
 
-	<?php include ( get_template_directory() . '/searchform.php' ); ?>
+	<?php include( get_template_directory() . '/searchform.php' ); ?>
 
 	</div><!-- /post -->
 

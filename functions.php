@@ -14,7 +14,7 @@ Theme amendments and overrides.
 
 
 // set our version here
-define( 'THEBALL2018_VERSION', '1.0.4' );
+define( 'THEBALL2018_VERSION', '1.0.5' );
 
 
 

@@ -46,7 +46,7 @@ NOTES
 
 @media (max-width: 725px) {
 
-	#main_column_splash .post div.splash_copy
+	.page-template-page_subpages_splash #main_column_splash .post div.splash_copy
 	{
 		position: absolute;
 		top: 0;
@@ -64,12 +64,13 @@ NOTES
 
 @media (max-width: 600px) {
 
-	#main_column_splash
+	.page-template-page_subpages_splash #main_column_splash
 	{
 		background: #fff;
 	}
 
-	#main_column_splash .post, #main_column_splash .post.splash_post
+	.page-template-page_subpages_splash #main_column_splash .post,
+	.page-template-page_subpages_splash #main_column_splash .post.splash_post
 	{
 		position: relative;
 		height: auto;
@@ -77,7 +78,7 @@ NOTES
 		overflow: hidden;
 	}
 
-	#main_column_splash .post div.splash_image
+	.page-template-page_subpages_splash #main_column_splash .post div.splash_image
 	{
 		float: none;
 		position: relative;
@@ -85,7 +86,7 @@ NOTES
 		left: auto;
 	}
 
-	#main_column_splash .post div.splash_copy
+	.page-template-page_subpages_splash #main_column_splash .post div.splash_copy
 	{
 		position: relative;
 		top: auto;
@@ -101,52 +102,21 @@ NOTES
 
 
 
-/* next natural breakpoint
-@media all and (max-width: 670px) {
+/* next natural breakpoint */
+@media all and (max-width: 570px) {
 
-	#titlewrap
+	.home #main_column_splash .post .splash_copy p
 	{
-		margin-top: 18px;
+		line-height: 1.4;
+		font-size: 70%;
 	}
 
-	#tagline
+	.home #main_column_splash .splash_copy_inner
 	{
-		width: auto;
-		margin-top: 6px;
-	}
-
-	#banner_ad
-	{
-		clear: left;
-		float: left;
-		width: 360px;
-		margin-top: 4px;
-	}
-
-	#join_in_top
-	{
-		float: left;
-		margin-left: 0;
-		margin-right: 12px;
-	}
-
-	form#paypal_donate
-	{
-		float: left;
-		clear: none;
-		margin-top: 4px;
-	}
-
-	.search_form
-	{
-		position: absolute;
-		right: 0;
-		margin-right: 10px;
-		margin-top: 8px;
-		padding-top: 0;
+		padding-top: 5px;
 	}
 
 }
- */
+
 
 

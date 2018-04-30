@@ -1,10 +1,17 @@
-/**
- * Default map styles.
- *
- * This has been copied to map-style.css in our theme directory
- * or Geo Mashup Custom plugin directory, if you have that
- * installed.
- */
+/*
+================================================================================
+Overridden Geo Mashup Map styles
+================================================================================
+AUTHOR: Christian Wach <needle@haystack.co.uk>
+--------------------------------------------------------------------------------
+NOTES
+
+This is a copy of map-style.css in the Geo Mashup plugin directory.
+
+--------------------------------------------------------------------------------
+*/
+
+
 
 /* Maps fill the frame, makes percentage height maps a bit easier */
 html, body { height: 100%; }

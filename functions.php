@@ -120,6 +120,26 @@ add_filter( 'theball_supporters', 'theball2018_supporters_file', 10, 1 );
 
 
 /**
+ * Override users in "Team" template file.
+ *
+ * @since 1.0.5
+ *
+ * @param array $users The default set of users.
+ * @return array $users The modified set of users.
+ */
+function theball2018_team_members( $default ) {
+
+	// 2018 users
+	return array( 3, 5, 8, 7, 2, 4 );
+
+}
+
+// add a filter for the above
+//add_filter( 'theball_team_members', 'theball2018_team_members', 10, 1 );
+
+
+
+/**
  * The Ball 2018 Gallery Shortcode Filter Class.
  *
  * A class that encapsulates the functionality required to replace the assets of

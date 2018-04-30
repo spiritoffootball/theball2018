@@ -1,4 +1,5 @@
 /*
+--------------------------------------------------------------------------------
 Theme Name: The Ball 2018 Child Theme
 Theme URI: http://theball.tv/2018/
 Description: A child theme for The Ball 2018.
@@ -6,6 +7,7 @@ Version: 1.0.5
 Template: theball
 Author: Christian Wach
 Author URI: http://www.haystack.co.uk
+--------------------------------------------------------------------------------
 */
 
 /* deliberately empty: see 'functions.php' for how styles and scripts are enqueued */

@@ -85,7 +85,7 @@ function theball2018_theball_image( $default ) {
 
 	// ignore default and set our own
 	return '<a href="' . get_option( 'home' ) . '" title="' . __( 'Home', 'theball2018' ) . '" class="ball_image">' .
-			'<img src="' . get_stylesheet_directory_uri() . '/assets/images/interface/the_ball_2018_cgi.png" ' .
+			'<img src="' . get_stylesheet_directory_uri() . '/assets/images/interface/the_ball_2018_200_sq.png" ' .
 				 'alt="' . esc_attr( __( 'The Ball 2018', 'theball2018' ) ) . '" ' .
 				 'title="' . esc_attr( __( 'The Ball 2018', 'theball2018' ) ) . '" ' .
 				 'style="width: 100px; height: 100px;" ' .
@@ -95,7 +95,7 @@ function theball2018_theball_image( $default ) {
 }
 
 // add a filter for the above
-//add_filter( 'theball_image', 'theball2018_theball_image', 10, 1 );
+add_filter( 'theball_image', 'theball2018_theball_image', 10, 1 );
 
 
 

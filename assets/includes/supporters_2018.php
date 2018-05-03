@@ -14,13 +14,7 @@ NOTES
 
 	<div id="sponsor_logos">
 
-		<ul>
-
-			<li><a href="http://www.gamechangers.com/" title="GameChangers"><img class="partner_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/partners/gamechangers_logo.png" alt="GameChangers Logo" style="padding-top: 1em;" /></a></li>
-
-			<li><a href="http://flexinterativa.com.br/" title="Flex Interativa"><img class="partner_logo" src="<?php echo get_template_directory_uri(); ?>/assets/images/partners/flex_logo.png" alt="Flex Interativa Logo" /></a></li>
-
-		</ul>
+		<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/interface/supporters-2018.png" alt="Our partners" style="padding-top: 1em; width: 750px; height: auto; max-width: 100%;" />
 
 	</div><!-- sponsor_logos -->
 

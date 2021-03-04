@@ -25,9 +25,9 @@ get_header(); ?>
 
 		<?php
 
-		// Search Nav
-		$pl = get_next_posts_link( '&laquo; Older Posts' );
-		$nl = get_previous_posts_link( 'Newer Posts &raquo;' );
+		// Search Nav.
+		$pl = get_next_posts_link( __( '&laquo; Older Posts', 'theball' ) );
+		$nl = get_previous_posts_link( __( 'Newer Posts &raquo;', 'theball' ) );
 
 		?>
 
@@ -47,22 +47,7 @@ get_header(); ?>
 			<div class="post">
 			<div class="post_header archive_header">
 
-			<?php //$post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
-			<?php /* If this is a category archive */ if ( is_category() ) { ?>
-			<h2 class="pagetitle">Archive for &#8216;<?php single_cat_title(); ?>&#8217;</h2>
-			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-			<h2 class="pagetitle">Posts tagged &#8216;<?php single_tag_title(); ?>&#8217;</h2>
-			<?php /* If this is a daily archive */ } elseif ( is_day() ) { ?>
-			<h2 class="pagetitle">Archive for <?php the_time( 'F jS, Y' ); ?></h2>
-			<?php /* If this is a monthly archive */ } elseif ( is_month() ) { ?>
-			<h2 class="pagetitle">Archive for <?php the_time( 'F, Y' ); ?></h2>
-			<?php /* If this is a yearly archive */ } elseif ( is_year() ) { ?>
-			<h2 class="pagetitle">Archive for <?php the_time( 'Y' ); ?></h2>
-			<?php /* If this is an author archive */ } elseif ( is_author() ) { ?>
-			<h2 class="pagetitle">Author archive</h2>
-			<?php /* If this is a paged archive */ } elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) { ?>
-			<h2 class="pagetitle">Blog archives</h2>
-			<?php } ?>
+				<?php the_archive_title( '<h2 class="pagetitle">', '</h2>' ); ?>
 
 			</div>
 			</div>
@@ -79,11 +64,11 @@ get_header(); ?>
 
 					<?php
 
-					// init
+					// Init.
 					$has_feature_image = false;
 					$feature_image_class = '';
 
-					// do we have a feature image?
+					// Do we have a feature image?
 					if ( has_post_thumbnail() ) {
 						$has_feature_image = true;
 						$feature_image_class = ' has_feature_image';
@@ -97,7 +82,7 @@ get_header(); ?>
 
 							<?php
 
-							// show feature image when we have one
+							// Show feature image when we have one.
 							if ( $has_feature_image ) {
 								echo get_the_post_thumbnail( get_the_ID(), 'medium-640' );
 							}
@@ -106,7 +91,7 @@ get_header(); ?>
 
 							<div class="post_header_text">
 
-								<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+								<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute( [ 'before' => __( 'Permanent Link to: ', 'theball' ), 'after'  => '' ] ); ?>"><?php the_title(); ?></a></h2>
 
 							</div><!-- /post_header_text -->
 
@@ -118,7 +103,7 @@ get_header(); ?>
 						<?php the_excerpt(); ?>
 					</div>
 
-					<p class="postmetadata"><?php the_tags( 'Tags: ', ', ', '<br />' ); ?> Posted in <?php the_category( ', ' ) ?> | <?php comments_popup_link( 'No Comments &#187;', '1 Comment &#187;', '% Comments &#187;' ); ?></p>
+					<p class="postmetadata"><?php the_tags( __( 'Tags: ', 'theball' ), ', ', '<br />' ); ?> <?php _e( 'Posted in ', 'theball' ) . the_category( ', ' ) ?> | <?php comments_popup_link( __( 'No Comments &#187;', 'theball' ), __( '1 Comment &#187;', 'theball' ), __( '% Comments &#187;', 'theball' ) ); ?></p>
 
 				</div>
 
@@ -147,24 +132,7 @@ get_header(); ?>
 
 			<div class="post">
 			<div class="post_header archive_header">
-
-			<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
-			<?php /* If this is a category archive */ if ( is_category() ) { ?>
-			<h2 class="pagetitle">Nothing found for &#8216;<?php single_cat_title(); ?>&#8217;</h2>
-			<?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
-			<h2 class="pagetitle">Nothing found tagged with &#8216;<?php single_tag_title(); ?>&#8217;</h2>
-			<?php /* If this is a daily archive */ } elseif ( is_day() ) { ?>
-			<h2 class="pagetitle">Nothing found in the Archive for <?php the_time( 'F jS, Y' ); ?></h2>
-			<?php /* If this is a monthly archive */ } elseif ( is_month() ) { ?>
-			<h2 class="pagetitle">Nothing found in the Archive for <?php the_time( 'F, Y' ); ?></h2>
-			<?php /* If this is a yearly archive */ } elseif ( is_year() ) { ?>
-			<h2 class="pagetitle">Nothing found in the Archive for <?php the_time( 'Y' ); ?></h2>
-			<?php /* If this is an author archive */ } elseif ( is_author() ) { ?>
-			<h2 class="pagetitle">Nothing found in the Author Archive</h2>
-			<?php /* If this is a paged archive */ } elseif ( isset( $_GET['paged'] ) && ! empty( $_GET['paged'] ) ) { ?>
-			<h2 class="pagetitle">Nothing found in the Blog Archives</h2>
-			<?php } ?>
-
+				<h2 class="pagetitle"><?php _e( 'Nothing found', 'theball' ); ?></h2>
 			</div>
 			</div>
 

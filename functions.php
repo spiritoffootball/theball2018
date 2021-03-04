@@ -13,7 +13,7 @@ Theme amendments and overrides.
 
 
 
-// set our version here
+// Set our version here.
 define( 'THEBALL2018_VERSION', '1.0.5' );
 
 
@@ -23,7 +23,9 @@ define( 'THEBALL2018_VERSION', '1.0.5' );
  *
  * @since 1.0
  */
-if ( ! isset( $content_width ) ) { $content_width = 660; }
+if ( ! isset( $content_width ) ) {
+	$content_width = 660;
+}
 
 
 
@@ -45,7 +47,7 @@ function theball2018_setup() {
 
 }
 
-// add after theme setup hook
+// Add after theme setup hook.
 add_action( 'after_setup_theme', 'theball2018_setup' );
 
 
@@ -57,18 +59,18 @@ add_action( 'after_setup_theme', 'theball2018_setup' );
  */
 function theball2018_enqueue_styles() {
 
-	// enqueue file
+	// Enqueue file.
 	wp_enqueue_style(
 		'theball2018_css',
 		get_stylesheet_directory_uri() . '/assets/css/style-overrides.css',
-		array( 'theball_screen_css' ),
-		THEBALL2018_VERSION, // version
-		'all' // media
+		[ 'theball_screen_css' ],
+		THEBALL2018_VERSION, // Version.
+		'all' // Media.
 	);
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 add_filter( 'wp_enqueue_scripts', 'theball2018_enqueue_styles', 105 );
 
 
@@ -83,8 +85,8 @@ add_filter( 'wp_enqueue_scripts', 'theball2018_enqueue_styles', 105 );
  */
 function theball2018_theball_image( $default ) {
 
-	// ignore default and set our own
-	return '<a href="' . get_option( 'home' ) . '" title="' . __( 'Home', 'theball2018' ) . '" class="ball_image">' .
+	// Ignore default and set our own.
+	return '<a href="' . get_home_url( null, '/' ) . '" title="' . __( 'Home', 'theball2018' ) . '" class="ball_image">' .
 			'<img src="' . get_stylesheet_directory_uri() . '/assets/images/interface/the_ball_2018_200_sq.png" ' .
 				 'alt="' . esc_attr( __( 'The Ball 2018', 'theball2018' ) ) . '" ' .
 				 'title="' . esc_attr( __( 'The Ball 2018', 'theball2018' ) ) . '" ' .
@@ -94,7 +96,7 @@ function theball2018_theball_image( $default ) {
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 add_filter( 'theball_image', 'theball2018_theball_image', 10, 1 );
 
 
@@ -109,12 +111,12 @@ add_filter( 'theball_image', 'theball2018_theball_image', 10, 1 );
  */
 function theball2018_supporters_file( $default ) {
 
-	// override with 2018 file
+	// Override with 2018 file
 	return get_stylesheet_directory() . '/assets/includes/supporters_2018.php';
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 add_filter( 'theball_supporters', 'theball2018_supporters_file', 10, 1 );
 
 
@@ -130,11 +132,11 @@ add_filter( 'theball_supporters', 'theball2018_supporters_file', 10, 1 );
 function theball2018_team_members( $default ) {
 
 	// 2018 users
-	return array( 3, 5, 8, 7, 2, 4 );
+	return [ 3, 5, 8, 7, 2, 4 ];
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 //add_filter( 'theball_team_members', 'theball2018_team_members', 10, 1 );
 
 
@@ -176,11 +178,11 @@ class The_Ball_2018_Gallery_Filter {
 	 */
 	public function __construct() {
 
-		// add a filter for the gallery shortcode
-		add_filter( 'post_gallery', array( $this, 'gallery_shortcode' ), 1010, 2 );
+		// Add a filter for the gallery shortcode
+		add_filter( 'post_gallery', [ $this, 'gallery_shortcode' ], 1010, 2 );
 
-		// add a filter for the above
-		add_filter( 'comments_open', array( $this, 'media_comment_status' ), 10, 2 );
+		// Add a filter for the above.
+		add_filter( 'comments_open', [ $this, 'media_comment_status' ], 10, 2 );
 
 	}
 
@@ -197,20 +199,24 @@ class The_Ball_2018_Gallery_Filter {
 	 */
 	public function gallery_shortcode( $output, $attr ) {
 
-		// check for our custom attribute
-		if( empty( $attr['sof_site_id'] ) ) return $output;
-		if( ! is_numeric( $attr['sof_site_id'] ) ) return $output;
+		// Check for our custom attribute.
+		if ( empty( $attr['sof_site_id'] ) ) {
+			return $output;
+		}
+		if ( ! is_numeric( $attr['sof_site_id'] ) ) {
+			return $output;
+		}
 
-		// set site ID
+		// Set site ID
 		$this->site_id = absint( $attr['sof_site_id'] );
 
-		// set filter flag
+		// Set filter flag.
 		$this->gallery_filter = true;
 
-		// prevent recursion
-		remove_filter( 'post_gallery', array( $this, 'gallery_shortcode' ), 1010 );
+		// Prevent recursion.
+		remove_filter( 'post_gallery', [ $this, 'gallery_shortcode' ], 1010 );
 
-		// switch to SOF eV site and rebuild shortcode
+		// Switch to SOF eV site and rebuild shortcode.
 		switch_to_blog( $this->site_id );
 		$output = do_shortcode( '[gallery type="' . $attr['type'] . '" ids="' . $attr['ids'] . '"]' );
 		restore_current_blog();
@@ -218,18 +224,18 @@ class The_Ball_2018_Gallery_Filter {
 		/*
 		$e = new Exception;
 		$trace = $e->getTraceAsString();
-		error_log( print_r( array(
+		error_log( print_r( [
 			'method' => __METHOD__,
 			'attr' => $attr,
 			'output' => $output,
 			'backtrace' => $trace,
-		), true ) );
+		], true ) );
 		*/
 
-		// reset filter
-		add_filter( 'post_gallery', array( $this, 'gallery_shortcode' ), 1010, 2 );
+		// Reset filter.
+		add_filter( 'post_gallery', [ $this, 'gallery_shortcode' ], 1010, 2 );
 
-		// reset filter flag
+		// Reset filter flag.
 		$this->gallery_filter = false;
 
 		// --<
@@ -253,20 +259,24 @@ class The_Ball_2018_Gallery_Filter {
 	 */
 	public function media_comment_status( $open, $post_id ) {
 
-		// bail if not filtering a gallery
-		if ( $this->gallery_filter === false ) return $open;
+		// Bail if not filtering a gallery.
+		if ( $this->gallery_filter === false ) {
+			return $open;
+		}
 
-		// bail if site ID is not properly set
-		if ( ! is_numeric( $this->site_id ) ) return $open;
+		// Bail if site ID is not properly set.
+		if ( ! is_numeric( $this->site_id ) ) {
+			return $open;
+		}
 
 		// --<
 		return false;
 
 	}
 
-} // end class
+} // End class.
 
-// init class
+// Init class.
 global $sof_gallery_filter;
 $sof_gallery_filter = new The_Ball_2018_Gallery_Filter();
 

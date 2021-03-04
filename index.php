@@ -25,9 +25,9 @@ get_header(); ?>
 
 		<?php
 
-		// Search Nav
-		$pl = get_next_posts_link( '&laquo; Older Posts' );
-		$nl = get_previous_posts_link( 'Newer Posts &raquo;' );
+		// Search Nav.
+		$pl = get_next_posts_link( __( '&laquo; Older Posts', 'theball' ) );
+		$nl = get_previous_posts_link( __( 'Newer Posts &raquo;', 'theball' ) );
 
 		?>
 
@@ -48,11 +48,11 @@ get_header(); ?>
 
 					<?php
 
-					// init
+					// Init.
 					$has_feature_image = false;
 					$feature_image_class = '';
 
-					// do we have a feature image?
+					// Do we have a feature image?
 					if ( has_post_thumbnail() ) {
 						$has_feature_image = true;
 						$feature_image_class = ' has_feature_image';
@@ -66,7 +66,7 @@ get_header(); ?>
 
 							<?php
 
-							// show feature image when we have one
+							// Show feature image when we have one.
 							if ( $has_feature_image ) {
 								echo get_the_post_thumbnail( get_the_ID(), 'medium-640' );
 							}
@@ -75,7 +75,7 @@ get_header(); ?>
 
 							<div class="post_header_text">
 
-								<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php the_title(); ?></a></h2>
+								<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute( [ 'before' => __( 'Permanent Link to: ', 'theball' ), 'after'  => '' ] ); ?>"><?php the_title(); ?></a></h2>
 
 							</div><!-- /post_header_text -->
 
@@ -87,7 +87,7 @@ get_header(); ?>
 						<?php the_excerpt(); ?>
 					</div>
 
-					<p class="postmetadata"><?php the_tags( 'Tags: ', ', ', '<br />' ); ?> Posted in <?php the_category( ', ' ) ?> | <?php comments_popup_link( 'No Comments &#187;', '1 Comment &#187;', '% Comments &#187;' ); ?></p>
+					<p class="postmetadata"><?php the_tags( __( 'Tags: ', 'theball' ), ', ', '<br />' ); ?> <?php _e( 'Posted in ', 'theball' ) . the_category( ', ' ) ?> | <?php comments_popup_link( __( 'No Comments &#187;', 'theball' ), __( '1 Comment &#187;', 'theball' ), __( '% Comments &#187;', 'theball' ) ); ?></p>
 
 				</div>
 

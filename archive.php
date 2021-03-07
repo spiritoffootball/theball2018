@@ -11,13 +11,16 @@ This overrides the parent theme template because we only want excerpts.
 --------------------------------------------------------------------------------
 */
 
-get_header(); ?>
+get_header();
 
-<!-- archive.php -->
+?><!-- archive.php -->
 
 <div id="content_wrapper" class="clearfix">
 
-<?php include( get_stylesheet_directory() . '/assets/includes/site_banner.php' ); ?>
+<?php $site_banner = locate_template( 'assets/includes/site_banner.php' ); ?>
+<?php if ( $site_banner ) : ?>
+	<?php load_template( $site_banner ); ?>
+<?php endif; ?>
 
 <div class="main_column clearfix">
 
@@ -145,11 +148,11 @@ get_header(); ?>
 			<div class="post">
 
 			<div class="entrytext clearfix">
-
 				<p><?php _e( 'Try searching for something?', 'theball2018' ); ?></p>
-
-				<?php include( get_template_directory() . '/searchform.php' ); ?>
-
+				<?php $searchform = locate_template( 'searchform.php' ); ?>
+				<?php if ( $searchform ) : ?>
+					<?php load_template( $searchform ); ?>
+				<?php endif; ?>
 			</div><!-- /entrytext -->
 
 			</div><!-- /post -->

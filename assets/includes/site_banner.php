@@ -15,7 +15,10 @@ NOTES
 
 	<div id="site_banner_inner">
 
-		<?php include( get_template_directory() . '/assets/includes/network.php' ); ?>
+		<?php $network_black = locate_template( 'assets/includes/network.php' ); ?>
+		<?php if ( $network_black ) : ?>
+			<?php load_template( $network_black ); ?>
+		<?php endif; ?>
 
 		<div id="splash">
 
@@ -44,7 +47,10 @@ NOTES
 <div id="cols" class="clearfix">
 <div class="cols_inner">
 
-	<?php include( get_template_directory() . '/assets/includes/page_list.php' ); ?>
+	<?php $page_list = locate_template( 'assets/includes/page_list.php' ); ?>
+	<?php if ( $page_list ) : ?>
+		<?php load_template( $page_list ); ?>
+	<?php endif; ?>
 
 
 

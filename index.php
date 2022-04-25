@@ -1,15 +1,12 @@
-<?php /*
-================================================================================
-The Ball 2018 Blog Archive Template
-================================================================================
-AUTHOR: Christian Wach <needle@haystack.co.uk>
---------------------------------------------------------------------------------
-NOTES
-
-This overrides the parent theme template.
-
---------------------------------------------------------------------------------
-*/
+<?php
+/**
+ * The Ball 2018 Blog Archive Template.
+ *
+ * This overrides the parent theme template.
+ *
+ * @since 1.0.0
+ * @package The_Ball_2018
+ */
 
 get_header(); ?>
 
@@ -34,18 +31,21 @@ get_header(); ?>
 
 		?>
 
-		<?php if ( $nl != '' OR $pl != '' ) { ?>
-
-		<ul class="blog_navigation clearfix">
-			<?php if ( $nl != '' ) { ?><li class="alignright"><?php echo $nl; ?></li><?php } ?>
-			<?php if ( $pl != '' ) { ?><li class="alignleft"><?php echo $pl; ?></li><?php } ?>
-		</ul>
-
-		<?php } ?>
+		<?php if ( $nl != '' || $pl != '' ) : ?>
+			<ul class="blog_navigation clearfix">
+				<?php if ( $nl != '' ) : ?>
+					<li class="alignright"><?php echo $nl; ?></li>
+				<?php endif; ?>
+				<?php if ( $pl != '' ) : ?>
+					<li class="alignleft"><?php echo $pl; ?></li>
+				<?php endif; ?>
+			</ul>
+		<?php endif; ?>
 
 		<div class="main_column_inner">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( have_posts() ) : ?>
+				<?php the_post(); ?>
 
 				<div class="post" id="post-<?php the_ID(); ?>">
 
@@ -78,7 +78,7 @@ get_header(); ?>
 
 							<div class="post_header_text">
 
-								<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute( [ 'before' => __( 'Permanent Link to: ', 'theball2018' ), 'after'  => '' ] ); ?>"><?php the_title(); ?></a></h2>
+								<h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute( [ 'before' => __( 'Permanent Link to: ', 'theball2018' ), 'after' => '' ] ); ?>"><?php the_title(); ?></a></h2>
 
 							</div><!-- /post_header_text -->
 
@@ -90,7 +90,7 @@ get_header(); ?>
 						<?php the_excerpt(); ?>
 					</div>
 
-					<p class="postmetadata"><?php the_tags( __( 'Tags: ', 'theball2018' ), ', ', '<br />' ); ?> <?php _e( 'Posted in ', 'theball2018' ) . the_category( ', ' ) ?> | <?php comments_popup_link( __( 'No Comments &#187;', 'theball2018' ), __( '1 Comment &#187;', 'theball2018' ), __( '% Comments &#187;', 'theball2018' ) ); ?></p>
+					<p class="postmetadata"><?php the_tags( __( 'Tags: ', 'theball2018' ), ', ', '<br />' ); ?> <?php esc_html_e( 'Posted in ', 'theball2018' ) . the_category( ', ' ); ?> | <?php comments_popup_link( __( 'No Comments &#187;', 'theball2018' ), __( '1 Comment &#187;', 'theball2018' ), __( '% Comments &#187;', 'theball2018' ) ); ?></p>
 
 				</div>
 
@@ -98,14 +98,16 @@ get_header(); ?>
 
 		</div><!-- /main_column_inner -->
 
-		<?php if ( $nl != '' OR $pl != '' ) { ?>
-
+		<?php if ( $nl != '' || $pl != '' ) : ?>
 			<ul class="blog_navigation clearfix">
-				<?php if ( $nl != '' ) { ?><li class="alignright"><?php echo $nl; ?></li><?php } ?>
-				<?php if ( $pl != '' ) { ?><li class="alignleft"><?php echo $pl; ?></li><?php } ?>
+				<?php if ( $nl != '' ) : ?>
+					<li class="alignright"><?php echo $nl; ?></li>
+				<?php endif; ?>
+				<?php if ( $pl != '' ) : ?>
+					<li class="alignleft"><?php echo $pl; ?></li>
+				<?php endif; ?>
 			</ul>
-
-		<?php } ?>
+		<?php endif; ?>
 
 	<?php else : ?>
 
@@ -113,9 +115,9 @@ get_header(); ?>
 
 			<div class="post">
 
-				<h2><?php _e( 'Page not found', 'theball2018' ); ?></h2>
+				<h2><?php esc_html_e( 'Page not found', 'theball2018' ); ?></h2>
 
-				<p><?php _e( 'Sorry, but you are looking for something that isn’t here. Try a search?', 'theball2018' ); ?></p>
+				<p><?php esc_html_e( 'Sorry, but you are looking for something that isn’t here. Try a search?', 'theball2018' ); ?></p>
 
 				<?php $searchform = locate_template( 'searchform.php' ); ?>
 				<?php if ( $searchform ) : ?>

@@ -1,15 +1,10 @@
-<?php /*
-================================================================================
-2018 Child Theme Gallery Class
-================================================================================
-AUTHOR: Christian Wach <needle@haystack.co.uk>
---------------------------------------------------------------------------------
-NOTES
-
---------------------------------------------------------------------------------
-*/
-
-
+<?php
+/**
+ * The Ball 2018 Gallery Shortcode Filter Class.
+ *
+ * @since 1.0.3
+ * @package The_Ball_2018
+ */
 
 /**
  * The Ball 2018 Gallery Shortcode Filter Class.
@@ -39,8 +34,6 @@ class The_Ball_2018_Gallery_Filter {
 	 */
 	public $gallery_filter = false;
 
-
-
 	/**
 	 * Initialises this object.
 	 *
@@ -55,8 +48,6 @@ class The_Ball_2018_Gallery_Filter {
 		add_filter( 'comments_open', [ $this, 'media_comment_status' ], 10, 2 );
 
 	}
-
-
 
 	/**
 	 * Switch to target site for gallery shortcode assets.
@@ -91,17 +82,6 @@ class The_Ball_2018_Gallery_Filter {
 		$output = do_shortcode( '[gallery type="' . $attr['type'] . '" ids="' . $attr['ids'] . '"]' );
 		restore_current_blog();
 
-		/*
-		$e = new Exception;
-		$trace = $e->getTraceAsString();
-		error_log( print_r( [
-			'method' => __METHOD__,
-			'attr' => $attr,
-			'output' => $output,
-			'backtrace' => $trace,
-		], true ) );
-		*/
-
 		// Reset filter.
 		add_filter( 'post_gallery', [ $this, 'gallery_shortcode' ], 1010, 2 );
 
@@ -112,8 +92,6 @@ class The_Ball_2018_Gallery_Filter {
 		return $output;
 
 	}
-
-
 
 	/**
 	 * Remove comments from media attachments.
@@ -144,9 +122,4 @@ class The_Ball_2018_Gallery_Filter {
 
 	}
 
-
-
 }
-
-
-

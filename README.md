@@ -14,7 +14,7 @@ There are two ways to install from GitHub:
 
 ### ZIP Download
 
-If you have downloaded The Ball as a ZIP file from the GitHub repository, do the following to install the plugin:
+If you have downloaded this theme as a ZIP file from the GitHub repository, do the following to install it:
 
 1. Unzip the .zip file and, if needed, rename the enclosing folder so that the theme's files are located directly inside `/wp-content/themes/theball2018`
 2. Activate the theme.

@@ -6,6 +6,9 @@
  * @package The_Ball_2018
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 /**
  * The Ball 2018 Theme Class.
  *

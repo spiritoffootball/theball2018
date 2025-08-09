@@ -28,7 +28,7 @@ class SOF_The_Ball_2018_Theme {
 	public $gallery_filter;
 
 	/**
-	 * Initialises this object.
+	 * Constructor.
 	 *
 	 * @since 1.0.5
 	 */
@@ -40,19 +40,15 @@ class SOF_The_Ball_2018_Theme {
 	}
 
 	/**
-	 * Include files.
+	 * Initialises this object.
 	 *
 	 * @since 1.0.0
 	 */
 	public function initialise() {
 
-		// Include files.
+		// Bootstrap class.
 		$this->include_files();
-
-		// Set up objects and references.
 		$this->setup_objects();
-
-		// Register hooks.
 		$this->register_hooks();
 
 		/**
@@ -73,7 +69,7 @@ class SOF_The_Ball_2018_Theme {
 
 		// Only do this once.
 		static $done;
-		if ( isset( $done ) && $done === true ) {
+		if ( isset( $done ) && true === $done ) {
 			return;
 		}
 
@@ -97,7 +93,7 @@ class SOF_The_Ball_2018_Theme {
 
 		// Only do this once.
 		static $done;
-		if ( isset( $done ) && $done === true ) {
+		if ( isset( $done ) && true === $done ) {
 			return;
 		}
 
@@ -110,7 +106,7 @@ class SOF_The_Ball_2018_Theme {
 	}
 
 	/**
-	 * Register WordPress hooks.
+	 * Register hook callbacks.
 	 *
 	 * @since 1.0.5
 	 */

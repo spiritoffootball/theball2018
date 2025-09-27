@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<div id="splash">
 
-			<a href="/2018/files/2017/03/hijab-girl-signs-ball.jpg"><img src="/2018/files/2017/03/hijab-girl-signs-ball.jpg" alt="<?php esc_attr_e( 'Girl signs The Ball', 'theball2018' ); ?>" title="<?php esc_attr_e( 'Girl signs The Ball', 'theball2018' ); ?>" width="200" height="150" class="alignnone size-medium wp-image-122" /></a>
+			<a href="/2018/wp-content/uploads/sites/13/2017/03/hijab-girl-signs-ball.jpg"><img src="/2018/wp-content/uploads/sites/13/2017/03/hijab-girl-signs-ball.jpg" alt="<?php esc_attr_e( 'Girl signs The Ball', 'theball2018' ); ?>" title="<?php esc_attr_e( 'Girl signs The Ball', 'theball2018' ); ?>" width="200" height="150" class="alignnone size-medium wp-image-122" /></a>
 
 		</div><!-- /splash -->
 
